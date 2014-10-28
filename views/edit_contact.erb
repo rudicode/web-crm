@@ -1,7 +1,7 @@
-<h1>Create new Contact</h1>
+<h1>Edit Contact</h1>
 
 <form action="/contacts" method="post">
-  First Name:</br><input type="text" name="first_name"></br>
+  First Name:</br><input type="text" name="first_name" value=<%= @contact.first_name %>></br>
   Last Name:</br><input type="text" name="last_name"></br>
   Email:</br><input type="text" name="email"></br>
   Note:</br><input type="text" name="note"></br>

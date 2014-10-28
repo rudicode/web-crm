@@ -23,7 +23,7 @@ class Rolodex
   def find_contact_by_id id
     found_contact = nil
     @contacts.each do |contact|
-      found_contact = contact if contact.id == id
+      found_contact = contact if contact.id == id.to_i
     end
     found_contact
   end

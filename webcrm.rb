@@ -6,6 +6,13 @@ require_relative './lib/persistence'
 require_relative './lib/rolodex'
 
 require 'sinatra'
+require "sinatra/reloader" if development?
+require "better_errors"
+
+configure :development do
+  use BetterErrors::Middleware
+  BetterErrors.application_root = __dir__
+end
 
 # use a class variable or global variable so that the
 # $rolodex object is persisted between calls
@@ -40,7 +47,24 @@ post '/contacts' do
   $rolodex.add_contact params[:first_name], params[:last_name], params[:email], params[:note]
 
   redirect to('/contacts') # this is a GET
+end
 
+get '/contacts/:id' do
+  #display single contact
+end
+
+get '/contacts/edit/:id' do
+  log params
+  if @contact = $rolodex.find_contact_by_id(params[:id])
+    log @contact
+    erb :edit_contact
+  else
+    redirect to('/contacts')
+  end
+end
+
+delete '/contacts/:id' do
+  #
 end
 
 get '/pry' do
