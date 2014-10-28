@@ -12,16 +12,38 @@ require 'sinatra'
 # @@rolodex = Rolodex.new
 $rolodex = Rolodex.new "Bitmaker CRM"
 
+# helpers
+#
+def log message
+  puts "__[CRM_LOG]__:#{message}\n"
+
+end
+
+# 
 get '/' do
+
   erb :index
 end
 
+get '/contacts' do
+  log "GET /contacts"
+  @contacts = $rolodex.contacts
+  erb :list_contacts
+end
+
+get '/contacts/new' do
+  erb :new_contact
+end
+
 post '/contacts' do
-  puts #the params hash
-  contact = Contact.new(params[:first_name], params[:last_name], params[:email], params[:note])
-  $rolodex.add_contact contact  
+  log params #the params hash
+  $rolodex.add_contact params[:first_name], params[:last_name], params[:email], params[:note]
 
   redirect to('/contacts') # this is a GET
 
+end
+
+get '/pry' do
+  binding.pry
 end
   

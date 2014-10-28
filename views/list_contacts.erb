@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= $rolodex.name %></title>
+  </head>
+  <body>
+    <h1>List All Contacts</h1>
+    <ul>
+      <% @contacts.each do |contact| %>
+      <li><%= contact.first_name %> <%= contact.last_name %>
+          <%= contact.email %><%= contact.notes %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
