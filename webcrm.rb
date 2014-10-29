@@ -64,8 +64,11 @@ end
 
 post '/contacts/:id' do
   # do update here
-  @id = params[:id]
-  erb :succesful_update
+  if @contact = $rolodex.find_contact_by_id(params[:id])
+    erb :succesful_update
+  else
+    #error finding the contact to update
+  end
 end
 
 post '/contacts/delete/:id' do
