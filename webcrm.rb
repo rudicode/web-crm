@@ -35,7 +35,7 @@ end
 get '/contacts' do
   log "GET /contacts"
   @contacts = $rolodex.contacts
-  erb :list_contacts
+  erb :list_contacts, :layout => :layout 
 end
 
 get '/contacts/new' do
@@ -43,7 +43,7 @@ get '/contacts/new' do
 end
 
 post '/contacts' do
-  log params #the params hash
+  log params
   $rolodex.add_contact params[:first_name], params[:last_name], params[:email], params[:note]
 
   redirect to('/contacts') # this is a GET
@@ -63,7 +63,7 @@ get '/contacts/edit/:id' do
   end
 end
 
-delete '/contacts/:id' do
+post '/contacts/delete/:id' do
   #
 end
 
