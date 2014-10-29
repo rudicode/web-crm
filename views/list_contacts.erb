@@ -19,15 +19,8 @@
         <td><%= contact.last_name %></td>
         <td><%= contact.email %></td>
         <td><%= contact.notes %></td>
-        <td><a href="/contacts/<%= contact.id %>">Delete</a></td>
+        <td><a href="/contacts/delete/<%= contact.id %>">Delete</a></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-    <ul>
-      <% @contacts.each do |contact| %>
-      <li><%= contact.first_name %> <%= contact.last_name %>
-          <%= contact.email %><%= contact.notes %></li>
-      <% end %>
-    </ul>
