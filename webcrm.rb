@@ -23,7 +23,6 @@ $rolodex = Rolodex.new "Bitmaker CRM"
 #
 def log message
   puts "__[CRM_LOG]__:#{message}\n"
-
 end
 
 # 
@@ -61,6 +60,12 @@ get '/contacts/edit/:id' do
   else
     redirect to('/contacts')
   end
+end
+
+post '/contacts/:id' do
+  # do update here
+  @id = params[:id]
+  erb :succesful_update
 end
 
 post '/contacts/delete/:id' do
