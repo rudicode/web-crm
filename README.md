@@ -10,9 +10,10 @@ A sinatra app front end to the previously created Rolodex class used in the CRM.
   * Added Foundation5 and foundation font icons.
   * Notices displayed below the main menu
   * Contact count displayed at top of all pages.
+  * Add, ability to delete contact
 
 # Still Working On
-  * Add, ability to delete contact
+  * Fix the way delete is displayed in list all contacts
   * Add, search for contacts.
   * Add, ability to undelete.
   * notice needs to display different colors for different situations.

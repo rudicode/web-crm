@@ -100,9 +100,18 @@ post '/contacts/:id' do
   end
 end
 
-post '/contacts/delete/:id' do
+delete "/contacts/:id" do
   log params
-  #
+  @contact = $rolodex.find_contact_by_id(params[:id])
+  if @contact
+    $rolodex.delete_contact(@contact.id)
+    $notice = "Contact: #{@contact.first_name} Deleted"
+    redirect to("/contacts")
+  else
+    $notice = "Contact: Not Deleted"
+    redirect to('/contacts') # this is a GET
+    # raise Sinatra::NotFound
+  end
 end
 
 get '/pry' do
