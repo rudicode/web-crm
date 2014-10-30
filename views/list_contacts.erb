@@ -9,7 +9,7 @@
       <th>First</th>
       <th>Last</th>
       <th>Email</th>
-      <th>Notes</th>
+      <!-- <th>Notes</th> -->
     </tr>
   </thead>
     <% @contacts.each_with_index do |contact,index| %>
@@ -19,7 +19,7 @@
         <td <%= class_odd_or_even index %>><%= contact.first_name %></td>
         <td <%= class_odd_or_even index %>><%= contact.last_name %></td>
         <td <%= class_odd_or_even index %>><%= contact.email %></td>
-        <td <%= class_odd_or_even index %>><%= contact.notes %></td>
+        <!-- <td <%= class_odd_or_even index %>><%= contact.notes %></td> -->
     </tr>
     <% end %>
   </tbody>

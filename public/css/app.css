@@ -1,13 +1,13 @@
 body {
   /*color: red;*/
   font-family: 'Allerta', verdana;
-  /*font-size: 1.2em;*/
+  font-size: 1.8em;
 }
 
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Marvel', verdana;
   margin: 10px;
-  font-size: 2.0em;
+  font-size: 2.2em;
 }
 
 h1 {
