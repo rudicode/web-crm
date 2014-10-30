@@ -1,9 +1,68 @@
 <h1> <i class="fi-page-edit"></i> Create new Contact</h1>
 
 <form action="/contacts" method="post">
-  First Name:</br><input type="text" name="first_name"></br>
-  Last Name:</br><input type="text" name="last_name"></br>
-  Email:</br><input type="text" name="email"></br>
-  Note:</br><input type="text" name="note"></br>
-  <input type="submit" name="Submit">
+  <label for="first_name">First name:</label>
+  <input id="first_name" type="text" name="first_name"></br>
+
+  <label for="last_name">Last name:</label>
+  <input id="last_name" type="text" name="last_name"></br>
+
+  <label for="email">Email:</label>
+  <input id="email" type="text" name="email"></br>
+
+  <label for="notes">Notes:</label>
+  <input id="notes" type="text" name="note"></br>
+
+          <!-- experimenting here -->
+          
+          <textarea type="textarea" id="film-description" name="description" rows="20" columns="100" placeholder="Describe this film"></textarea>
+          <div class="field">
+          <fieldset>
+              <label><input type="radio" name="rating" value="1">ONE</label>
+              <label><input type="radio" name="rating" value="2">TWO</label>
+              <label><input type="radio" name="rating" value="3">THREE</label>
+              <label><input type="radio" name="rating" value="4">FOUR</label>
+              <label><input type="radio" name="rating" value="5">FIVE</label>
+              <label><input type="radio" name="rating" value="6">SIX</label>
+            </fieldset>
+          </div>
+          <div class="field">
+          <fieldset>
+          <label>
+            <input type="checkbox" name="genre[]" value="Action">
+          </label>
+          <label>
+            <input type="checkbox" name="genre[]" value="Adventure">
+          </label>
+          <label>
+            <input type="checkbox" name="genre[]" value="Romance">
+          </label>
+          </fieldset>
+          </div>
+
+          <div class="field">
+              <label for="film-country">Country</label>
+              <select name="country" id="film-country">
+                <option value="CA">Canada</option>
+                <option value="US">United States</option>
+                <option value="EN">England</option>
+                <option value="FR">France</option>
+              </select>
+          </div>
+
+          <!-- <label for="myemail">Test Email:</label>
+          <input type="myemail" name="myemail">
+          <input type="date" >
+          <input type="time">
+          <input type="tel">
+          <input type="search">
+          <input type="url"> -->
+          
+          <input type="hidden" name="user-id" value="99">
+          <button type="submit" >
+            <img src="image.png" alt="Create Contact">
+          </button>
+          <!-- finished experiments -->
+
+  <!-- <input type="submit" name="Submit" value="Create Contact"> -->
 </form>
