@@ -42,7 +42,8 @@ helpers MyHelpers
 
 # 
 get '/' do
-
+  @count = $rolodex.contacts.size
+  log @count
   erb :index
 end
 
