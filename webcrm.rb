@@ -32,6 +32,10 @@ module MyHelpers
     end
     "class=\"even\""
   end
+
+  def clear_notice
+    $notice=""
+  end
 end
 
 helpers MyHelpers
@@ -44,6 +48,7 @@ end
 
 get '/contacts' do
   log "GET /contacts"
+  # $notice = "Displaying Contacts"
   @contacts = $rolodex.contacts
   erb :list_contacts, :layout => :layout 
 end
@@ -54,9 +59,13 @@ end
 
 post '/contacts' do
   log params
-  $rolodex.add_contact params[:first_name], params[:last_name], params[:email], params[:note]
-
-  redirect to('/contacts') # this is a GET
+  if $rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:note])
+    $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, added."
+    redirect to('/contacts')
+  else
+    $notice = "Contact: Not Added"
+    redirect to('/contacts/new') # this is a GET
+  end
 end
 
 get '/contacts/:id' do
@@ -75,10 +84,13 @@ end
 
 post '/contacts/:id' do
   # do update here
-  if @contact = $rolodex.find_contact_by_id(params[:id])
-    erb :succesful_update
+  if $rolodex.update_contact(params[:id], params[:first_name], params[:last_name], params[:email], params[:notes])
+    $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, updated."
+    redirect to('/contacts')
   else
     #error finding the contact to update
+    $notice = "Contact: Not updated"
+    redirect to('/contacts')
   end
 end
 

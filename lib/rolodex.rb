@@ -14,10 +14,14 @@ class Rolodex
 
 
   def add_contact first_name, last_name, email, notes
+    
+    return nil if first_name.nil? || first_name.empty?
+
     contact = Contact.new first_name, last_name, email, notes
     contact.id = @index
     @index += 1
     @contacts << contact
+    contact
   end
 
   def find_contact_by_id id
@@ -37,6 +41,8 @@ class Rolodex
   end
 
   def update_contact id, first_name, last_name, email, notes
+    id = id.to_i
+    return nil if ( id == 0 || first_name.empty? )
 
     contact = find_contact_by_id id
 

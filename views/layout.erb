@@ -17,6 +17,8 @@
       <a class="item" href="/contacts"><i class="fi-list"></i>List Contacts</a>
       <a class="item" href="/search"><i class="fi-page-search"></i>Search For Contact</a>
     </div>
+    <div class="notice" ><%= $notice %></div>
     <%=  yield %>
  </body>
 </html>
+<% clear_notice %>

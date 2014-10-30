@@ -25,6 +25,13 @@ describe Rolodex do
       end.to change{@rolodex.contacts.length}.by(1)
     end
 
+    it "should reject contact without first_name" do
+      expect do
+        @first_name = ""
+        @rolodex.add_contact @first_name, @last_name, @email, @notes
+      end.to change{@rolodex.contacts.length}.by(0) #refactor test for readibility
+    end
+
     it "should add the correct contact" do
       @initial_index = @rolodex.index
       @rolodex.add_contact @first_name, @last_name, @email, @notes
