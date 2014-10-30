@@ -15,6 +15,7 @@ A sinatra app front end to the previously created Rolodex class used in the CRM.
   * Add, ability to delete contact
   * Add, search for contacts.
   * Add, ability to undelete.
+  * notice needs to display different colors for different situations.
   * Update landing page, it is very plain!
   * Add, ability to display all of one attribute
-  
+
