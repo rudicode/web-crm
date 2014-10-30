@@ -1,29 +1,53 @@
-/*@font-face {
-  font-family: '[set]Foundicons';
-  src: url('fonts/[set]_foundicons.eot');
-  src: url('fonts/[set]_foundicons.eot?#iefix') format('embedded-opentype'),
-       url('fonts/[set]_foundicons.woff') format('woff'),
-       url('fonts/[set]_foundicons.ttf') format('truetype'),
-       url('fonts/[set]_foundicons.svg#[set]Foundicons') format('svg');
-  font-weight: normal;
-  font-style: normal;
+body {
+  /*color: red;*/
+  font-family: 'Allerta', verdana;
+  /*font-size: 1.2em;*/
 }
- 
-[class*="foundicon-"] {
-  display: inline;
-  width: auto;
-  height: auto;
-  line-height: inherit;
-  vertical-align: baseline;
-  background-image: none;
-  background-position: 0 0;
-  background-repeat: repeat;
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Marvel', verdana;
+  margin: 10px;
+  font-size: 2.0em;
 }
- 
-[class*="foundicon-"]:before {
-  font-family: "[set]Foundicons";
-  font-weight: normal;
-  font-style: normal;
-  text-decoration: inherit;
+
+h1 {
+  padding-left: 25px;
 }
-*/
+
+table {
+  font-size: 1.0em;
+  margin: 5px;
+  border: 3px solid cornflowerblue;
+  color: black;
+}
+
+th {
+
+}
+
+th,td {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid cornflowerblue;
+  background-color: #C2C7FF
+}
+
+.even {
+  background-color: #C2C7FF
+}
+
+.odd {
+
+  background-color: #D2D2FF
+}
+
+
+/*foundation font icons my app over-rides*/
+
+.fi-x {
+  color: #662222;
+}
+
+.fi-page-edit {
+  color: #205020;
+}

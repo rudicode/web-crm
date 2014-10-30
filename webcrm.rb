@@ -1,5 +1,5 @@
 require 'pry'
-require 'csv'
+# require 'csv'
 
 require_relative './lib/contact'
 require_relative './lib/persistence'
@@ -24,6 +24,17 @@ $rolodex = Rolodex.new "Bitmaker CRM"
 def log message
   puts "__[CRM_LOG]__:#{message}\n"
 end
+
+module MyHelpers
+  def class_odd_or_even number
+    if number.odd?
+      return "class=\"odd\""
+    end
+    "class=\"even\""
+  end
+end
+
+helpers MyHelpers
 
 # 
 get '/' do
