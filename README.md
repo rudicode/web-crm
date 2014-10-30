@@ -4,7 +4,6 @@ Web-Crm
 A sinatra app front end to the previously created Rolodex class used in the CRM.
 
 # Working So Far
-  * Index page that displays a rudimentary menu of options.
   * List All Contacts
   * Create Contact
   * Edit Contact (form only but not submission)
@@ -12,8 +11,10 @@ A sinatra app front end to the previously created Rolodex class used in the CRM.
   * Notices displayed below the main menu
 
 # Still Working On
-  * Add, search for contacts.
+  * Move the contacts count to the footer so that every page displays it.
   * Add, ability to delete contact
+  * Add, search for contacts.
   * Add, ability to undelete.
-  * Add, ability to display all of one attribute
   * Update landing page, it is very plain!
+  * Add, ability to display all of one attribute
+  

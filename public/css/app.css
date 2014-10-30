@@ -23,6 +23,10 @@ input {
   font-size: 1.0em;
 }
 
+button {
+  border-radius: 10px;
+}
+
 /*different */
 [type=text],
 [type=email] {
@@ -44,7 +48,6 @@ th,td {
   margin: 5px;
   padding: 5px;
   border: 1px solid cornflowerblue;
-  /*background-color: #C2C7FF;*/
 }
 
 .even {background-color: #C2C7FF;}
@@ -64,4 +67,14 @@ tr:nth-child(odd)  {background-color: #E2E2FF;}
 
 .fi-page-edit {
   color: #205020;
+}
+
+.notice {
+  border: 1px solid red;
+  background-color: #ffeeee;
+}
+
+/*menu items*/
+.item {
+  padding-left: 20px;
 }

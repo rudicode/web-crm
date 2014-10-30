@@ -18,7 +18,9 @@
       <a class="item" href="/contacts/new"><i class="ffi-page-add"></i>Add Contact</a>
       <a class="item" href="/search"><i class="fi-page-search"></i>Search For Contact</a>
     </div>
-    <div class="notice" ><%= $notice %></div>
+    <% unless $notice.empty? %>
+      <div class="notice" ><%= $notice %></div>
+    <% end %>
     <%=  yield %>
  </body>
 </html>
