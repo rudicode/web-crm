@@ -3,22 +3,22 @@
 
 <table>
   <thead>
-    <tr>
-      <th class="odd"></th>
-      <th class="odd"></th>
-      <th class="odd">First</th>
-      <th class="odd">Last</th>
-      <th class="odd">Email</th>
+    <tr class="even">
+      <th></th>
+      <th></th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Email</th>
       <!-- <th class="odd">Notes</th> -->
     </tr>
   </thead>
     <% @contacts.each_with_index do |contact,index| %>
     <tr>
-        <td <%= class_odd_or_even index %>><a href="/contacts/delete/<%= contact.id %>"><i class="fi-x"></i></a></td>
-        <td <%= class_odd_or_even index %> ><a href="/contacts/edit/<%= contact.id %>"><i class="fi-page-edit"></i></a></td>
-        <td <%= class_odd_or_even index %>><%= contact.first_name %></td>
-        <td <%= class_odd_or_even index %>><%= contact.last_name %></td>
-        <td <%= class_odd_or_even index %>><%= contact.email %></td>
+        <td><a href="/contacts/delete/<%= contact.id %>"><i class="fi-x"></i></a></td>
+        <td><a href="/contacts/edit/<%= contact.id %>"><i class="fi-page-edit"></i></a></td>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.last_name %></td>
+        <td><%= contact.email %></td>
         <!-- <td <%= class_odd_or_even index %>><%= contact.notes %></td> -->
     </tr>
     <% end %>

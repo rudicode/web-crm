@@ -22,6 +22,7 @@ input {
   font-size: 1.0em;
 }
 
+/*different */
 [type=text],
 [type=email] {
   padding: 8px;
@@ -42,17 +43,16 @@ th,td {
   margin: 5px;
   padding: 5px;
   border: 1px solid cornflowerblue;
-  background-color: #C2C7FF;
+  /*background-color: #C2C7FF;*/
 }
 
-.even {
-  background-color: #C2C7FF;
-}
+.even {background-color: #C2C7FF;}
+.odd  {background-color: #E2E2FF;}
 
-.odd {
 
-  background-color: #E2E2FF;
-}
+/*set different backgrounds for odd and even table lines*/
+tr:nth-child(even) {background-color: #C2C7FF;}
+tr:nth-child(odd)  {background-color: #E2E2FF;}
 
 
 /*foundation font icons my app over-rides*/
