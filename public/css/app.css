@@ -29,16 +29,16 @@ th,td {
   margin: 5px;
   padding: 5px;
   border: 1px solid cornflowerblue;
-  background-color: #C2C7FF
+  background-color: #C2C7FF;
 }
 
 .even {
-  background-color: #C2C7FF
+  background-color: #C2C7FF;
 }
 
 .odd {
 
-  background-color: #D2D2FF
+  background-color: #E2E2FF;
 }
 
 
