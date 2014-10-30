@@ -25,6 +25,8 @@ input {
 
 button {
   border-radius: 10px;
+  border-top-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
 /*different */

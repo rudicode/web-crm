@@ -89,6 +89,7 @@ end
 
 post '/contacts/:id' do
   # do update here
+  log params
   if $rolodex.update_contact(params[:id], params[:first_name], params[:last_name], params[:email], params[:notes])
     $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, updated."
     redirect to('/contacts')
@@ -100,6 +101,7 @@ post '/contacts/:id' do
 end
 
 post '/contacts/delete/:id' do
+  log params
   #
 end
 
