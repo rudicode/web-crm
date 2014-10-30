@@ -36,14 +36,18 @@ module MyHelpers
   def clear_notice
     $notice=""
   end
+
+  def contact_count
+    $rolodex.contacts.size
+  end
 end
 
 helpers MyHelpers
 
 # 
 get '/' do
-  @count = $rolodex.contacts.size
-  log @count
+  @count = contact_count
+  # log @count
   erb :index
 end
 

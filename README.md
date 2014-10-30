@@ -5,13 +5,13 @@ A sinatra app front end to the previously created Rolodex class used in the CRM.
 
 # Working So Far
   * List All Contacts
-  * Create Contact
-  * Edit Contact (form only but not submission)
+  * Create Contact ( does not let you update if name is empty)
+  * Edit Contact ( does not let you update if name is empty)
   * Added Foundation5 and foundation font icons.
   * Notices displayed below the main menu
+  * Contact count displayed at top of all pages.
 
 # Still Working On
-  * Move the contacts count to the header so that every page displays it.
   * Add, ability to delete contact
   * Add, search for contacts.
   * Add, ability to undelete.

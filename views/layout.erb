@@ -21,6 +21,7 @@
     <% unless $notice.empty? %>
       <div class="notice" ><%= $notice %></div>
     <% end %>
+    <h3>There are currently <%= contact_count %> contacts in the CRM</h3>
     <%=  yield %>
  </body>
 </html>
