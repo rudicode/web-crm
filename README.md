@@ -11,7 +11,7 @@ A sinatra app front end to the previously created Rolodex class used in the CRM.
   * Notices displayed below the main menu
 
 # Still Working On
-  * Move the contacts count to the footer so that every page displays it.
+  * Move the contacts count to the header so that every page displays it.
   * Add, ability to delete contact
   * Add, search for contacts.
   * Add, ability to undelete.

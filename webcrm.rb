@@ -18,7 +18,7 @@ end
 # $rolodex object is persisted between calls
 # @@rolodex = Rolodex.new
 $rolodex = Rolodex.new "Bitmaker CRM"
-
+$notice = ""
 # helpers
 #
 def log message
