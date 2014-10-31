@@ -46,7 +46,6 @@ module MyHelpers
   end
 
   def contact_count
-    # $rolodex.contacts.size
     Ormcontact.count
   end
 
@@ -140,16 +139,24 @@ end
 
 delete "/contacts/:id" do
   log params
-  @contact = $rolodex.find_contact_by_id(params[:id])
-  if @contact
-    $rolodex.delete_contact(@contact.id)
-    $notice = "Contact: #{@contact.first_name} Deleted"
-    redirect to("/contacts")
+  if contact = Ormcontact.get(params[:id].to_i)
+    contact.destroy
+    $notice = "Contact #{params[:id]} has been Deleted."
   else
-    $notice = "Contact: Not Deleted"
-    redirect to('/contacts')
-    # raise Sinatra::NotFound
+    $notice = "Could not Delete Contact with id: #{params[:id]}"
   end
+  redirect to('/contacts')
+
+  # @contact = $rolodex.find_contact_by_id(params[:id])
+  # if @contact
+  #   $rolodex.delete_contact(@contact.id)
+  #   $notice = "Contact: #{@contact.first_name} Deleted"
+  #   redirect to("/contacts")
+  # else
+  #   $notice = "Contact: Not Deleted"
+  #   redirect to('/contacts')
+  #   # raise Sinatra::NotFound
+  # end
 end
 
 # get '/pry' do

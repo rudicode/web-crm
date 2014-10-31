@@ -1,5 +1,6 @@
 <h1> <i class="fi-page-edit"></i> Edit Contact</h1>
 
+<fieldset>
 <form action="/contacts/<%= @contact.id %>" method="post">
   First Name:</br><input type="text" name="first_name" value=<%= @contact.first_name %>></br>
   Last Name:</br><input type="text" name="last_name"  value=<%= @contact.last_name %>></br>
@@ -7,3 +8,4 @@
   Note:</br><input type="text" name="notes"  value=<%= @contact.notes %>></br>
   <button type="submit" >Update Contact</button>
 </form>
+</fieldset>
