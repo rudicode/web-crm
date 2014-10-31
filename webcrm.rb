@@ -1,4 +1,6 @@
 require 'pry'
+# require 'sqlite'
+# require 'datamapper'
 # require 'csv'
 
 require_relative './lib/contact'

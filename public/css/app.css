@@ -1,7 +1,12 @@
 body {
   /*color: red;*/
   font-family: 'Allerta', verdana;
-  font-size: 1.8em;
+  font-size: 1.5em;
+}
+
+.logo {
+  float: left;
+  padding: 10px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -48,26 +53,25 @@ button {
 }
 
 /*different */
-[type=text],
+/*[type=text],
 [type=email] {
   padding: 8px;
-}
+}*/
 
 table {
   font-size: 1.0em;
   margin: 5px;
-  border: 3px solid cornflowerblue;
+  border: 2px solid cornflowerblue;
   color: black;
-}
-
-th {
-
 }
 
 th,td {
   margin: 5px;
   padding: 5px;
-  border: 1px solid cornflowerblue;
+  /*border: 1px solid cornflowerblue;*/
+  /*border-bottom-width: 20px;*/
+  border-bottom: 4px solid cornflowerblue;
+  /*border-bottom-color: cornflowerblue;*/
 }
 
 .even {background-color: #C2C7FF;}
