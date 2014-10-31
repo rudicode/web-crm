@@ -11,6 +11,7 @@ A sinatra app front end to the previously created Rolodex class used in the CRM.
   * Notices displayed below the main menu
   * Contact count displayed at top of all pages.
   * Add, ability to delete contact
+  * Added datamapper orm, not all functionality complete yet.
 
 # Still Working On
   * Fix the way delete is displayed in list all contacts

@@ -48,6 +48,7 @@ module MyHelpers
   def contact_count
     $rolodex.contacts.size
   end
+
 end
 
 helpers MyHelpers
@@ -82,41 +83,59 @@ post '/contacts' do
     $notice = "Contact: Not Added"
     redirect to('/contacts/new')
   end
-  # 
-  # if $rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:note])
-  #   $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, added."
-  #   redirect to('/contacts')
-  # else
-  #   $notice = "Contact: Not Added"
-  #   redirect to('/contacts/new') # this is a GET
-  # end
+  
 end
 
 get '/contacts/:id' do
   #display single contact
+  if @contact = Ormcontact.get(params[:id])
+    erb :show_contact
+  else
+    $notice = "Contact #{params[:id]} does not exist."
+    redirect to('/contacts')
+  end
+
+
 end
 
 get '/contacts/edit/:id' do
   log params
-  if @contact = $rolodex.find_contact_by_id(params[:id])
+  if @contact = Ormcontact.get(params[:id].to_i)
     log @contact
     erb :edit_contact
   else
+    $notice = "Contact with id #{params[:id]} does not exist."
     redirect to('/contacts')
   end
+
+  # if @contact = $rolodex.find_contact_by_id(params[:id])
+  #   log @contact
+  #   erb :edit_contact
+  # else
+  #   redirect to('/contacts')
+  # end
 end
 
 post '/contacts/:id' do
   # do update here
   log params
-  if $rolodex.update_contact(params[:id], params[:first_name], params[:last_name], params[:email], params[:notes])
-    $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, updated."
-    redirect to('/contacts')
+  if contact = Ormcontact.get(params[:id].to_i)
+    clean_params = Ormcontact.sanitize_params(params)
+    contact.attributes = clean_params
+      # binding.pry
+    if contact.save
+      $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, updated."
+    else
+      $notice = "Contact: was not saved."
+    end
+    # redirect to('/contacts')
   else
-    #error finding the contact to update
     $notice = "Contact: Not updated"
-    redirect to('/contacts')
+    # redirect to('/contacts')
   end
+
+  redirect to('/contacts')
+  
 end
 
 delete "/contacts/:id" do
