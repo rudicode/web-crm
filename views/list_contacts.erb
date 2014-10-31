@@ -17,9 +17,10 @@
         <td>
           <form action="/contacts/<%= contact.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
-            <input type="submit" name="Delete Contact"><i class="fi-x"></i></td>
-           </form>
-           <!-- <i class="fi-x"></i></td> -->
+            <button type="submit" id="delete-button"><i class="fi-x"></i></button>
+          </form>
+        </td>
+         <!-- <i class="fi-x"></i></td> -->
         <td><a href="/contacts/edit/<%= contact.id %>"><i class="fi-page-edit"></i></a></td>
         <td><%= contact.first_name %></td>
         <td><%= contact.last_name %></td>

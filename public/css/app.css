@@ -29,6 +29,24 @@ button {
   border-bottom-right-radius: 40px;
 }
 
+.submit_button {
+  /*background-color: black;*/
+  color: red;
+  width: 70px;
+}
+
+#delete-button {
+  border-radius: 0px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  padding: 10px;
+  font-size: 1.0em;
+}
+
 /*different */
 [type=text],
 [type=email] {
