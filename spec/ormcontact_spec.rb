@@ -16,7 +16,7 @@ describe Ormcontact do
       
       result = Ormcontact.sanitize_params(params)
       expect(result).to eq clean_params
-      p clean_params
+      # p clean_params
     end
 
   end

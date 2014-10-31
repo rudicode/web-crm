@@ -46,7 +46,8 @@ module MyHelpers
   end
 
   def contact_count
-    $rolodex.contacts.size
+    # $rolodex.contacts.size
+    Ormcontact.count
   end
 
 end
@@ -119,6 +120,7 @@ end
 post '/contacts/:id' do
   # do update here
   log params
+
   if contact = Ormcontact.get(params[:id].to_i)
     clean_params = Ormcontact.sanitize_params(params)
     contact.attributes = clean_params
@@ -128,10 +130,8 @@ post '/contacts/:id' do
     else
       $notice = "Contact: was not saved."
     end
-    # redirect to('/contacts')
   else
-    $notice = "Contact: Not updated"
-    # redirect to('/contacts')
+    $notice = "Contact Does not exist."
   end
 
   redirect to('/contacts')
@@ -147,12 +147,12 @@ delete "/contacts/:id" do
     redirect to("/contacts")
   else
     $notice = "Contact: Not Deleted"
-    redirect to('/contacts') # this is a GET
+    redirect to('/contacts')
     # raise Sinatra::NotFound
   end
 end
 
-get '/pry' do
-  binding.pry
-end
+# get '/pry' do
+#   binding.pry
+# end
   
