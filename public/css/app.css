@@ -21,7 +21,7 @@ h1 {
 }
 
 form {
-  padding: 20px;
+  padding: 2px;
 }
 
 input {
@@ -32,6 +32,7 @@ button {
   border-radius: 10px;
   border-top-left-radius: 40px;
   border-bottom-right-radius: 40px;
+  margin: 0;
 }
 
 .submit_button {
@@ -93,9 +94,13 @@ tr:nth-child(odd)  {background-color: #E2E2FF;}
   color: #205020;
 }
 
+h1>i.fi-page-add {
+  color: #205020;
+}
+
 .notice {
-  border: 1px solid red;
-  background-color: #ffeeee;
+  border: 1px solid yellow;
+  background-color: #eec33c;
 }
 
 /*menu items*/

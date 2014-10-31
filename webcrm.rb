@@ -1,12 +1,7 @@
 require 'pry'
 # require 'sqlite'
-# require 'datamapper'
+require 'data_mapper'
 # require 'csv'
-
-require_relative './lib/contact'
-require_relative './lib/persistence'
-require_relative './lib/rolodex'
-
 require 'sinatra'
 require "sinatra/reloader" if development?
 require "better_errors"
@@ -16,6 +11,17 @@ configure :development do
   BetterErrors.application_root = __dir__
 end
 
+
+DataMapper.setup(:default,"sqlite3://#{File.expand_path(File.dirname(__FILE__))}/db/database.sqlite3")
+
+require_relative './lib/contact'
+require_relative './lib/ormcontact'
+require_relative './lib/persistence'
+require_relative './lib/rolodex'
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
+
 # use a class variable or global variable so that the
 # $rolodex object is persisted between calls
 # @@rolodex = Rolodex.new
@@ -24,7 +30,7 @@ $notice = ""
 # helpers
 #
 def log message
-  puts "__[CRM_LOG]__:#{message}\n"
+  puts "\n__[CRM_LOG]__:#{message}\n\n"
 end
 
 module MyHelpers
@@ -55,8 +61,10 @@ end
 
 get '/contacts' do
   log "GET /contacts"
+
   # $notice = "Displaying Contacts"
-  @contacts = $rolodex.contacts
+  # @contacts = $rolodex.contacts
+  @contacts = Ormcontact.all
   erb :list_contacts, :layout => :layout 
 end
 
@@ -66,13 +74,22 @@ end
 
 post '/contacts' do
   log params
-  if $rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:note])
+  contact = Ormcontact.create params
+  if contact.saved?
     $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, added."
     redirect to('/contacts')
   else
     $notice = "Contact: Not Added"
-    redirect to('/contacts/new') # this is a GET
+    redirect to('/contacts/new')
   end
+  # 
+  # if $rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:note])
+  #   $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, added."
+  #   redirect to('/contacts')
+  # else
+  #   $notice = "Contact: Not Added"
+  #   redirect to('/contacts/new') # this is a GET
+  # end
 end
 
 get '/contacts/:id' do
