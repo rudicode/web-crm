@@ -1,11 +1,27 @@
 <h1> <i class="fi-page-edit"></i> Edit Contact</h1>
+<div class="contact-form">
+  <div class="row">
+      <div class="small-4 columns">
+        <form action="/contacts/<%= @contact.id %>" method="post">
+          <label for="first_name">First name:
+            <input type="text" name="first_name" value=<%= @contact.first_name %>>
+          </label>
 
-<fieldset>
-<form action="/contacts/<%= @contact.id %>" method="post">
-  First Name:</br><input type="text" name="first_name" value=<%= @contact.first_name %>></br>
-  Last Name:</br><input type="text" name="last_name"  value=<%= @contact.last_name %>></br>
-  Email:</br><input type="text" name="email" value=<%= @contact.email %>></br>
-  Note:</br><input type="text" name="notes"  value=<%= @contact.notes %>></br>
-  <button type="submit" >Update Contact</button>
-</form>
-</fieldset>
+          <label for="last_name">Last name:
+            <input type="text" name="last_name"  value=<%= @contact.last_name %>>
+          </label>
+
+          <label for="email">Email:
+            <input type="text" name="email" value=<%= @contact.email %>>
+          </label>
+
+          <label for="notes">Notes:
+            <input type="text" name="notes"  value=<%= @contact.notes %>>
+          </label>
+
+          <button type="submit" >Update Contact</button>
+        </form>
+      </div>
+  </div>
+</div>
+

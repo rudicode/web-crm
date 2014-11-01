@@ -1,31 +1,32 @@
 
-    <h1><i class="fi-list"></i>List All Contacts</h1>
+    <h1><i class="fi-list"></i> List All Contacts</h1>
 
 <table>
   <thead>
-    <tr class="even">
-      <th></th>
-      <th></th>
-      <th>First</th>
-      <th>Last</th>
+    <tr> <!--  class="even"> -->
+      
+      <th width="40"></th>
+      <th width="40"></th>
+      <th width="150">First</th>
+      <th width="150">Last</th>
       <th>Email</th>
+      <th width="40"></th>
       <!-- <th class="odd">Notes</th> -->
     </tr>
   </thead>
     <% @contacts.each_with_index do |contact,index| %>
     <tr>
-        <td>
-          <form action="/contacts/<%= contact.id %>" method="post">
-            <input type="hidden" name="_method" value="delete">
-            <button type="submit" id="delete-button"><i class="fi-x"></i></button>
-          </form>
-        </td>
-         <!-- <i class="fi-x"></i></td> -->
-        <td><a href="/contacts/edit/<%= contact.id %>"><i class="fi-page-edit"></i></a></td>
-        <td><a href="/contacts/<%= contact.id %>"><%= contact.first_name %></a></td>
-        <td><%= contact.last_name %></td>
-        <td><%= contact.email %></td>
-        <!-- <td <%= class_odd_or_even index %>><%= contact.notes %></td> -->
+      <td><a href="/contacts/edit/<%= contact.id %>"> <i class="fi-page-edit"></i></a></td>
+      <td><a href="/contacts/<%= contact.id %>"> <i class="fi-page"></i></a></td>
+      <td><%= contact.first_name %></a></td>
+      <td><%= contact.last_name %></td>
+      <td><%= contact.email %></td>
+      <td>
+        <form action="/contacts/<%= contact.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" id="delete-button"><i class="fi-x"></i></button>
+        </form>
+      </td>
     </tr>
     <% end %>
   </tbody>

@@ -2,10 +2,11 @@ body {
   /*color: red;*/
   font-family: 'Allerta', verdana;
   font-size: 1.5em;
+  background-color: #F4F4F4;
 }
 
 .logo {
-  float: left;
+  /*float: left;*/
   padding: 10px;
 }
 
@@ -20,6 +21,11 @@ h1 {
   padding-left: 25px;
 }
 
+li
+{
+  list-style-type: none;
+}
+
 form {
   padding: 2px;
 }
@@ -32,11 +38,14 @@ button {
   border-radius: 10px;
   border-top-left-radius: 40px;
   border-bottom-right-radius: 40px;
-  margin: 0;
+  margin: 20px;
 }
 
 .submit_button {
   /*background-color: black;*/
+  /*border: 0;*/
+  /*margin: 0;*/
+
   color: red;
   width: 70px;
 }
@@ -47,10 +56,12 @@ button {
   background-repeat:no-repeat;
   border: none;
   cursor:pointer;
+  font-size: 1.0em;
+  margin: 0;
   overflow: hidden;
   outline:none;
-  padding: 10px;
-  font-size: 1.0em;
+  padding: 5px;
+  
 }
 
 /*different */
@@ -60,9 +71,10 @@ button {
 }*/
 
 table {
-  font-size: 1.0em;
-  margin: 5px;
-  border: 2px solid cornflowerblue;
+  font-size: 0.8em;
+  margin: 30px;
+  /*border: 2px solid cornflowerblue;*/
+  border-radius: 10px;
   color: black;
 }
 
@@ -71,7 +83,7 @@ th,td {
   padding: 5px;
   /*border: 1px solid cornflowerblue;*/
   /*border-bottom-width: 20px;*/
-  border-bottom: 4px solid cornflowerblue;
+  /*border-bottom: 4px solid cornflowerblue;*/
   /*border-bottom-color: cornflowerblue;*/
 }
 
@@ -94,16 +106,58 @@ tr:nth-child(odd)  {background-color: #E2E2FF;}
   color: #205020;
 }
 
+td>a {
+  color: #205020;
+  padding-left: 10px;
+}
+
 h1>i.fi-page-add {
   color: #205020;
 }
 
 .notice {
   border: 1px solid yellow;
+  border-radius: 15px;
   background-color: #eec33c;
+  margin: 10px;
+  padding: 5px;
 }
 
 /*menu items*/
 .item {
   padding-left: 20px;
+}
+
+/*foundation columns*/
+.column, .columns {
+    /*background-color: #fff;*/
+    /*border: 1px solid cornflowerblue;*/
+    /*border-radius: 10px;*/
+    float: left;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    position: relative;
+}
+
+nav{
+  background-color: white;
+  border: 1px solid cornflowerblue;
+  border-radius: 15px;
+}
+
+section {
+  background-color: white;
+  border: 1px solid cornflowerblue;
+  border-radius: 15px;
+
+}
+
+.display-contact {
+  margin: 30px;
+}
+
+.contact-form {
+  /*font-family: 'Allerta', verdana;*/
+  margin: 30px;
+  /*background-color: yellow;*/
 }

@@ -1,66 +1,26 @@
 <h1> <i class="fi-page-add"></i> Add new Contact</h1>
-<fieldset>
-<form action="/contacts" method="post">
-  <label for="first_name">First name:</label>
-  <input id="first_name" type="text" name="first_name"></br>
-
-  <label for="last_name">Last name:</label>
-  <input id="last_name" type="text" name="last_name"></br>
-
-  <label for="email">Email:</label>
-  <input id="email" type="text" name="email"></br>
-
-  <label for="notes">Notes:</label>
-  <input id="notes" type="text" name="notes"></br>
-
-          <!-- experimenting here -->
-          
-          <!-- <textarea type="textarea" id="film-description" name="description" rows="20" columns="100" placeholder="Describe this film"></textarea>
-          <div class="field">
-          <fieldset>
-              <label><input type="radio" name="rating" value="1">ONE</label>
-              <label><input type="radio" name="rating" value="2">TWO</label>
-              <label><input type="radio" name="rating" value="3">THREE</label>
-              <label><input type="radio" name="rating" value="4">FOUR</label>
-              <label><input type="radio" name="rating" value="5">FIVE</label>
-              <label><input type="radio" name="rating" value="6">SIX</label>
-            </fieldset>
-          </div>
-          <div class="field">
-          <fieldset>
-          <label>
-            <input type="checkbox" name="genre[]" value="Action">
+<div class="contact-form">
+  <div class="row">
+      <div class="small-4 columns">
+        <form action="/contacts" method="post">
+          <label for="first_name">First name:
+            <input id="first_name" type="text" name="first_name">
           </label>
-          <label>
-            <input type="checkbox" name="genre[]" value="Adventure">
+
+          <label for="last_name">Last name:
+            <input id="last_name" type="text" name="last_name">
           </label>
-          <label>
-            <input type="checkbox" name="genre[]" value="Romance">
+
+          <label for="email">Email:
+            <input id="email" type="text" name="email">
           </label>
-          </fieldset>
-          </div>
 
-          <div class="field">
-              <label for="film-country">Country</label>
-              <select name="country" id="film-country">
-                <option value="CA">Canada</option>
-                <option value="US">United States</option>
-                <option value="EN">England</option>
-                <option value="FR">France</option>
-              </select>
-          </div> -->
+          <label for="notes">Notes:
+            <input id="notes" type="text" name="notes">
+          </label>
 
-          <!-- <label for="myemail">Test Email:</label>
-          <input type="myemail" name="myemail">
-          <input type="date" >
-          <input type="time">
-          <input type="tel">
-          <input type="search">
-          <input type="url"> -->
-          
-          <!-- <input type="hidden" name="user-id" value="99"> -->
-
-          <!-- finished experiments -->
-  <button type="submit" >Create Contact</button>
-  <!-- <input type="submit" name="Submit" value="Create Contact"> -->
-</form></fieldset>
+          <button type="submit" >Create Contact</button>
+        </form>
+      </div>
+  </div>
+</div>
