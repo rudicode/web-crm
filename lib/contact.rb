@@ -23,5 +23,9 @@ class Contact
     "#{@first_name} #{@last_name} #{@email} [ #{@notes} ]"
   end
 
+  def to_h
+    { :first_name => @first_name, :last_name => @last_name, :email => @email, :notes => @notes }
+  end
+
 end
 

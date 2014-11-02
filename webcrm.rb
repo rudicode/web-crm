@@ -27,6 +27,8 @@ DataMapper.auto_upgrade!
 # @@rolodex = Rolodex.new
 $rolodex = Rolodex.new "Bitmaker CRM"
 $notice = ""
+$random_contacts = []
+
 # helpers
 #
 def log message
@@ -49,6 +51,28 @@ module MyHelpers
     Ormcontact.count
   end
 
+  def generate_random_contacts
+
+    first = ["Andy", "Jim", "Mary", "Amy", "George", "Lucas", "Chris", "Matt", "Sarah", "Julie"]
+    last = ["Smith", "Martinez", "Parker", "Black", "Johnson", "King", "Nolin", "Verges", "Kerns"]
+    domain = ["google", "bell", "example", "sympatico", "rogers", "hotmail"]
+    email_suffix = [".com", ".net", ".org", ".tv"]
+    notes = "Some notes go here."
+
+    random_contacts = []
+
+    11.times do |count|
+      first_name = first.sample
+      last_name = last.sample
+      email = first_name + "." + last_name + "@" + domain.sample + email_suffix.sample
+
+      # @rolodex.add_contact first_name, last_name, email.downcase, notes
+
+      random_contacts << Contact.new(first_name, last_name, email.downcase, notes)
+    end
+    random_contacts
+  end
+
 end
 
 helpers MyHelpers
@@ -63,8 +87,6 @@ end
 get '/contacts' do
   log "GET /contacts"
 
-  # $notice = "Displaying Contacts"
-  # @contacts = $rolodex.contacts
   @contacts = Ormcontact.all
   erb :list_contacts, :layout => :layout 
 end
@@ -75,6 +97,7 @@ end
 
 post '/contacts' do
   log params
+  #TODO, sanitize params before creating the contact
   contact = Ormcontact.create params
   if contact.saved?
     $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, added."
@@ -94,8 +117,6 @@ get '/contacts/:id' do
     $notice = "Contact #{params[:id]} does not exist."
     redirect to('/contacts')
   end
-
-
 end
 
 get '/contacts/edit/:id' do
@@ -107,13 +128,6 @@ get '/contacts/edit/:id' do
     $notice = "Contact with id #{params[:id]} does not exist."
     redirect to('/contacts')
   end
-
-  # if @contact = $rolodex.find_contact_by_id(params[:id])
-  #   log @contact
-  #   erb :edit_contact
-  # else
-  #   redirect to('/contacts')
-  # end
 end
 
 post '/contacts/:id' do
@@ -123,7 +137,6 @@ post '/contacts/:id' do
   if contact = Ormcontact.get(params[:id].to_i)
     clean_params = Ormcontact.sanitize_params(params)
     contact.attributes = clean_params
-      # binding.pry
     if contact.save
       $notice = "Contact: #{params[:first_name]} #{params[:last_name]}, updated."
     else
@@ -140,6 +153,10 @@ end
 delete "/contacts/:id" do
   log params
   if contact = Ormcontact.get(params[:id].to_i)
+    deleted_contact = Ormcontactdeleted.new(contact.attributes)
+      # binding.pry
+    deleted_contact.save
+
     contact.destroy
     $notice = "Contact #{params[:id]} has been Deleted."
   else
@@ -147,19 +164,39 @@ delete "/contacts/:id" do
   end
   redirect to('/contacts')
 
-  # @contact = $rolodex.find_contact_by_id(params[:id])
-  # if @contact
-  #   $rolodex.delete_contact(@contact.id)
-  #   $notice = "Contact: #{@contact.first_name} Deleted"
-  #   redirect to("/contacts")
-  # else
-  #   $notice = "Contact: Not Deleted"
-  #   redirect to('/contacts')
-  #   # raise Sinatra::NotFound
-  # end
 end
 
-# get '/pry' do
-#   binding.pry
-# end
+get "/advanced_options" do
+  erb :advanced_options
+end
+
+get '/options/add_random_contacts' do
+  log "GET /options/add_random_contacts"
+
+  $random_contacts  = generate_random_contacts
+  @contacts = $random_contacts
+
+  erb :display_random_contacts
+end
+
+post '/options/add_random_contacts' do
+  log "POST /options/add_random_contacts"
+  log params
+  $random_contacts.each do |rand_contact|
+    
+    new_contact = Ormcontact.create(rand_contact.to_h)
+
+    if new_contact.saved?
+      $notice = "Random Contacts Added."
+    else
+      $notice = "There was an error saving random contacts."
+    end
+    
+  end
+
+  redirect to('/contacts')
+  
+end
+
+
   
