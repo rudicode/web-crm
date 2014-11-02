@@ -1,0 +1,38 @@
+
+<h1><i class="fi-trash"></i> List All Trash</h1>
+
+<h3>
+  <form action="/trash/empty" method="post">
+     <input type="hidden" name="_method" value="delete">
+     <button type="submit" id="small-button" class="undelete-button"><i class="fi-check"></i> Empty Trash</button>
+  </form>
+</h3>
+<% if !@contacts.empty? %>
+<table>
+  <thead>
+    <tr> 
+      <th width="50">Undelete</th>
+      <th width="150">First</th>
+      <th width="150">Last</th>
+      <th>Email</th>
+      <!-- <th class="odd">Notes</th> -->
+    </tr>
+  </thead>
+    <% @contacts.each_with_index do |contact,index| %>
+    <tr>
+      <td>
+        <form action="/trash/<%= contact.id %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" id="small-button" class="undelete-button"><i class="fi-check"></i></button>
+        </form>
+      </td>
+      <td><%= contact.first_name %></a></td>
+      <td><%= contact.last_name %></td>
+      <td><%= contact.email %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <h3>There are no cantacts in the Trash</h3>
+<% end %>

@@ -88,7 +88,7 @@ get '/contacts' do
   log "GET /contacts"
 
   @contacts = Ormcontact.all
-  erb :list_contacts, :layout => :layout 
+  erb :list_contacts
 end
 
 get '/contacts/new' do
@@ -196,6 +196,41 @@ post '/options/add_random_contacts' do
 
   redirect to('/contacts')
   
+end
+
+get '/trash' do
+  log "GET /trash"
+
+  @contacts = Ormcontactdeleted.all
+  erb :list_trash_contacts
+end
+
+delete '/trash/empty' do
+  trash_contacts = Ormcontactdeleted.all
+  trash_contacts.each do |trash_contact|
+    trash_contact.destroy
+  end
+  redirect to('/trash')
+end
+
+delete '/trash/:id' do
+  log "DELETE /trash/:id"
+  log params
+  
+  if contact = Ormcontactdeleted.get(params[:id].to_i)
+    new_contact = Ormcontact.new(contact.attributes)
+      # binding.pry
+    new_contact.save
+
+    contact.destroy
+    $notice = "Contact #{params[:id]} has been Undeleted."
+  else
+    $notice = "Could not Undelete Contact with id: #{params[:id]}"
+  end
+  # redirect to('/contacts')
+
+  # temp page to show
+  redirect to('/trash')
 end
 
 

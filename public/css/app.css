@@ -50,7 +50,7 @@ button {
   width: 70px;
 }
 
-#delete-button {
+#small-button {
   border-radius: 0px;
   background-color: Transparent;
   background-repeat:no-repeat;
@@ -62,6 +62,10 @@ button {
   outline:none;
   padding: 5px;
   
+}
+
+.undelete-button, .undelete-button:hover{
+  color: green;
 }
 
 /*different */

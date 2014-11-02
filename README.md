@@ -12,11 +12,11 @@ A sinatra app front end to the previously created Rolodex class used in the CRM.
   * Contact count displayed at top of all pages.
   * Add, ability to delete contact
   * Added datamapper orm, not all functionality complete yet.
+  * Deleted contacts now go to the trash.
+  * On the trash page you can undelete contacts or empty the trash.
 
 # Still Working On
-  * Fix the way delete is displayed in list all contacts
   * Add, search for contacts.
-  * Add, ability to undelete.
   * notice needs to display different colors for different situations.
   * Update landing page, it is very plain!
   * Add, ability to display all of one attribute
