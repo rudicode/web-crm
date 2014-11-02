@@ -1,2 +1,15 @@
 <h1> <i class="fi-telephone-accessible"></i> Welcome to the <%= $rolodex.name %></h1>
 
+<!-- <h1><i class="fi-page-search"> Search</h1> -->
+<div class="search-form">
+  <div class="row">
+      <div class="small-4 columns">
+        <form action="/search" method="get">
+          <label for="query"><i class="fi-page-search"></i> Search for Contact
+            <input id="query" type="text" name="query">
+          </label>
+          <button type="submit" >Search</button>
+        </form>
+      </div>
+  </div>
+</div>

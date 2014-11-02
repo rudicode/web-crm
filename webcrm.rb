@@ -72,7 +72,25 @@ module MyHelpers
     end
     random_contacts
   end
+  
+  def find_contacts(query)
+    found_contacts = []
 
+    all_contacts = Ormcontact.all
+    all_contacts.each do |contact|
+      match = false
+      match = true if contact.first_name.downcase.include?(query.downcase)
+      match = true if contact.last_name.downcase.include?(query.downcase)
+      match = true if contact.email.downcase.include?(query.downcase)
+      match = true if contact.notes.downcase.include?(query.downcase)
+
+      if match
+        found_contacts << contact
+      end
+    end
+
+    found_contacts
+  end
 end
 
 helpers MyHelpers
@@ -232,6 +250,21 @@ delete '/trash/:id' do
   # temp page to show
   redirect to('/trash')
 end
+
+get '/search' do
+  log "GET /search"
+  log params
+  
+  # try to find what is in the query
+  @contacts = find_contacts(params[:query])
+  if params[:query].empty? || @contacts.empty?
+    $notice = "Could not find contact, #{params[:query]}."
+    redirect to('/')
+  else
+    erb :search_results
+  end
+end
+
 
 
   

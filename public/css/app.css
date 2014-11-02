@@ -30,6 +30,10 @@ form {
   padding: 2px;
 }
 
+.search-form {
+  padding: 20px;
+}
+
 input {
   font-size: 1.0em;
 }
