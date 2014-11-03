@@ -24,6 +24,7 @@
       <td>
         <form action="/contacts/<%= contact.id %>" method="post">
           <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="redirect" value="<%= @redirect %>">
           <button type="submit" id="small-button"><i class="fi-x"></i></button>
         </form>
       </td>

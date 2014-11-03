@@ -106,6 +106,7 @@ get '/contacts' do
   log "GET /contacts"
 
   @contacts = Ormcontact.all
+  @redirect = '/contacts'
   erb :list_contacts
 end
 
@@ -180,7 +181,11 @@ delete "/contacts/:id" do
   else
     $notice = "Could not Delete Contact with id: #{params[:id]}"
   end
-  redirect to('/contacts')
+  if !params[:redirect].empty?
+    redirect to("#{params[:redirect]}")
+  else
+    redirect to('/contacts')
+  end
 
 end
 
@@ -261,6 +266,8 @@ get '/search' do
     $notice = "Could not find contact, #{params[:query]}."
     redirect to('/')
   else
+    @query = params[:query]
+    @redirect = "/search?query=#{@query}"
     erb :search_results
   end
 end
